@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4ecd9">
+  <title>Maths Arena — Stage 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">π</div>
+    <div class="brand-copy"><strong>Maths Arena</strong><span>Learn · Practise · Improve</span></div>
+    <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+  </header>
+
+  <main class="page">
+    <section class="hero paper-card">
+      <div class="eyebrow">YOUR MATHS WORKSPACE</div>
+      <h1>Make every<br><em>problem count.</em></h1>
+      <p>Choose a chapter and build your confidence, one question at a time.</p>
+      <div class="hero-stats">
+        <div><strong>13</strong><span>Chapters</span></div>
+        <div><strong>02</strong><span>Textbooks</span></div>
+        <div><strong>∞</strong><span>Practice</span></div>
+      </div>
+      <div class="scribble">✎</div>
+    </section>
+
+    <section class="section-heading">
+      <div><span class="eyebrow">YOUR SYLLABUS</span><h2>Chapter Index</h2></div>
+      <span class="small-note">Standard X · Maharashtra Board</span>
+    </section>
+
+    <section class="book-section">
+      <div class="book-heading"><span class="book-icon">Ⅰ</span><div><h3>Mathematics Part I</h3><p>Algebra</p></div><span class="chapter-count">06 chapters</span></div>
+      <div class="chapter-list" id="maths1List"></div>
+    </section>
+
+    <section class="book-section">
+      <div class="book-heading"><span class="book-icon blue">Ⅱ</span><div><h3>Mathematics Part II</h3><p>Geometry</p></div><span class="chapter-count">07 chapters</span></div>
+      <div class="chapter-list" id="maths2List"></div>
+    </section>
+
+    <section class="bottom-grid">
+      <button class="utility-card" id="analysisBtn"><span>▥</span><strong>My Analysis</strong><small>Progress & weak topics</small></button>
+      <button class="utility-card" id="settingsCard"><span>⚙</span><strong>Settings</strong><small>Sound & preferences</small></button>
+    </section>
+    <footer>Built for focused practice. <span>Stage 1 · Foundation</span></footer>
+  </main>
+
+  <dialog id="chapterDialog" class="modal">
+    <button class="close-btn" id="closeDialog">×</button>
+    <div class="eyebrow" id="dialogBook">MATHEMATICS</div>
+    <h2 id="dialogTitle">Chapter</h2>
+    <p class="modal-sub">Choose how you want to work on this chapter.</p>
+    <button class="choice-btn" id="tutorialBtn"><span>01</span><div><strong>Tutorial</strong><small>Learn concepts step by step in easy Hinglish</small></div><b>→</b></button>
+    <button class="choice-btn" id="practiceBtn"><span>02</span><div><strong>Question Practice</strong><small>Practise questions in your notebook workspace</small></div><b>→</b></button>
+    <p class="coming-soon" id="modalStatus">Stage 1 preview: chapter navigation is ready. Learning and practice modules are next.</p>
+  </dialog>
+
+  <dialog id="infoDialog" class="modal">
+    <button class="close-btn" id="closeInfo">×</button>
+    <div class="eyebrow">MATHS ARENA</div><h2 id="infoTitle">Coming next</h2>
+    <p id="infoText" class="modal-sub">This module will be added in a later stage.</p>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
