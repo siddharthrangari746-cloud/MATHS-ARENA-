@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4ecd9">
+  <title>Maths Arena — Std. X Maharashtra Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="back-btn hidden" id="globalBackBtn" aria-label="Go Back">
+      <span>←</span> Back
+    </button>
+    <div class="brand-wrap" id="brandHomeTrigger" role="button" tabindex="0" aria-label="Maths Arena Home">
+      <div class="brand-mark">π</div>
+      <div class="brand-copy">
+        <strong>Maths Arena</strong>
+        <span>Learn · Practise · Improve</span>
+      </div>
+    </div>
+    <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+  </header>
+
+  <main class="page">
+    <!-- ==================== VIEW 1: HOME SCREEN (STAGE 1 & 2 PRESERVED) ==================== -->
+    <div id="homeView" class="view-section active">
+      <section class="hero paper-card">
+        <div class="eyebrow">YOUR MATHS WORKSPACE</div>
+        <h1>Make every<br><em>problem count.</em></h1>
+        <p>Choose a chapter and build your confidence, one question at a time.</p>
+        <div class="hero-stats">
+          <div><strong>13</strong><span>Chapters</span></div>
+          <div><strong>02</strong><span>Textbooks</span></div>
+          <div><strong>∞</strong><span>Practice</span></div>
+        </div>
+        <div class="scribble">✎</div>
+      </section>
+
+      <section class="section-heading">
+        <div><span class="eyebrow">YOUR SYLLABUS</span><h2>Chapter Index</h2></div>
+        <span class="small-note">Standard X · Maharashtra Board</span>
+      </section>
+
+      <section class="book-section">
+        <div class="book-heading">
+          <span class="book-icon">Ⅰ</span>
+          <div><h3>Mathematics Part I</h3><p>Algebra</p></div>
+          <span class="chapter-count">06 chapters</span>
+        </div>
+        <div class="chapter-list" id="maths1List"></div>
+      </section>
+
+      <section class="book-section">
+        <div class="book-heading">
+          <span class="book-icon blue">Ⅱ</span>
+          <div><h3>Mathematics Part II</h3><p>Geometry</p></div>
+          <span class="chapter-count">07 chapters</span>
+        </div>
+        <div class="chapter-list" id="maths2List"></div>
+      </section>
+
+      <!-- TEST ARENA SECTION ON HOME SCREEN -->
+      <section class="section-heading">
+        <div><span class="eyebrow">EXAM SIMULATION</span><h2>Test Arena</h2></div>
+        <span class="small-note">Attempt anytime · No lock</span>
+      </section>
+
+      <section class="arena-banner paper-card">
+        <div class="arena-copy">
+          <div class="arena-badge">OPEN ACCESS TESTS</div>
+          <h3>Ready to test your preparation?</h3>
+          <p>Take chapter-wise, Part I, Part II, or full-syllabus tests directly—even before finishing tutorials.</p>
+        </div>
+        <button class="primary-btn" id="openTestArenaBtn">
+          <span>Open Test Arena</span>
+          <b>→</b>
+        </button>
+      </section>
+
+      <section class="bottom-grid">
+        <button class="utility-card" id="analysisBtn">
+          <span>▥</span>
+          <strong>My Analysis</strong>
+          <small>Progress & weak topics</small>
+        </button>
+        <button class="utility-card" id="settingsCard">
+          <span>⚙</span>
+          <strong>Settings</strong>
+          <small>Sound & preferences</small>
+        </button>
+      </section>
+    </div>
+
+    <!-- ==================== VIEW 2: DEDICATED CHAPTER VIEW ==================== -->
+    <div id="chapterView" class="view-section hidden">
+      <div class="breadcrumb-bar" id="chapterBreadcrumb">Home › Chapter</div>
+
+      <section class="chapter-hero paper-card">
+        <div class="chapter-meta-top">
+          <span class="subject-pill" id="chapSubjectPill">MATHEMATICS PART I · ALGEBRA</span>
+          <span class="chap-num-tag" id="chapNumTag">Chapter 01</span>
+        </div>
+        <h2 class="chapter-page-title" id="chapPageTitle">Linear Equations in Two Variables</h2>
+        <p class="chapter-page-desc" id="chapPageDesc">Standard X Maharashtra State Board · Concept & Practice Hub</p>
+
+        <!-- Dynamic Progress Indicator (Connected to Stage 3 localStorage) -->
+        <div class="progress-box">
+          <div class="progress-header">
+            <span>Chapter Tutorial Progress</span>
+            <strong id="chapProgressText">0% · Not started</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="chapProgressFill" style="width: 0%;"></div>
+          </div>
+          <small class="progress-note" id="chapProgressNote">Complete interactive tutorial lessons to track your mastery.</small>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <div><span class="eyebrow">LEARNING MODES</span><h2>Choose Your Activity</h2></div>
+        <span class="small-note">Step-by-step workflow</span>
+      </section>
+
+      <div class="mode-grid">
+        <button class="mode-card" id="goToTutorialBtn">
+          <div class="mode-top">
+            <span class="mode-num">01</span>
+            <span class="mode-tag">Interactive Guide</span>
+          </div>
+          <h3>Tutorial</h3>
+          <p>Understand definitions, formulas, theorems & solved examples in simple Hinglish + Exam Notes.</p>
+          <div class="mode-footer">
+            <span>Start / Resume Tutorial</span>
+            <b>→</b>
+          </div>
+        </button>
+
+        <button class="mode-card" id="goToPracticeBtn">
+          <div class="mode-top">
+            <span class="mode-num blue">02</span>
+            <span class="mode-tag blue">Hands-on</span>
+          </div>
+          <h3>Question Practice</h3>
+          <p>Solve textbook-style questions in your digital notebook with step checking.</p>
+          <div class="mode-footer">
+            <span>Enter Practice</span>
+            <b>→</b>
+          </div>
+        </button>
+      </div>
+
+      <div class="chapter-quick-test paper-card">
+        <div>
+          <strong>Want to test this chapter right away?</strong>
+          <small>Jump directly to Test Arena with this chapter pre-selected.</small>
+        </div>
+        <button class="secondary-btn" id="chapDirectTestBtn">Chapter Test →</button>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 3: STAGE 3 INTERACTIVE TUTORIAL SYSTEM ==================== -->
+    <div id="tutorialView" class="view-section hidden">
+      <div class="breadcrumb-bar" id="tutBreadcrumb">Home › Chapter › Tutorial</div>
+
+      <!-- Tutorial Workspace Header -->
+      <section class="tutorial-workspace-header paper-card">
+        <div class="entry-header">
+          <span class="subject-pill" id="tutSubjectPill">MATHEMATICS PART I · ALGEBRA</span>
+          <span class="stage-pill" id="tutLessonIndicator">Lesson 1 of 2</span>
+        </div>
+        <h2 class="entry-title" id="tutChapterTitle">Tutorial: Chapter Name</h2>
+
+        <!-- Tutorial Progress Bar -->
+        <div class="tut-mini-progress">
+          <div class="progress-track">
+            <div class="progress-fill" id="tutProgressFill" style="width: 0%;"></div>
+          </div>
+          <small id="tutProgressLabel">0% Chapter Completed</small>
+        </div>
+
+        <!-- Lesson Navigation & Topic Selector -->
+        <div class="lesson-nav-bar">
+          <button type="button" class="secondary-btn small-nav-btn" id="prevLessonBtn">← Prev</button>
+          <div class="lesson-select-wrapper">
+            <select id="lessonJumpSelect" class="paper-select" aria-label="Select Lesson"></select>
+          </div>
+          <button type="button" class="secondary-btn small-nav-btn" id="nextLessonBtn">Next →</button>
+        </div>
+      </section>
+
+      <!-- Dynamic Lesson Content Container -->
+      <div id="lessonContainer" class="lesson-container"></div>
+
+      <!-- Tutorial Footer Actions -->
+      <section class="tutorial-footer-bar paper-card">
+        <button type="button" class="secondary-btn" id="tutBackChapterBtn">← Back to Chapter</button>
+        <div class="footer-right-actions">
+          <button type="button" class="secondary-btn" id="tutSwitchPracticeBtn">Practice Questions</button>
+          <button type="button" class="primary-btn" id="markCompleteBtn">
+            <span>Mark Complete &amp; Next</span>
+            <b>✓</b>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== VIEW 4: QUESTION PRACTICE ENTRY SCREEN ==================== -->
+    <div id="practiceView" class="view-section hidden">
+      <div class="breadcrumb-bar" id="pracBreadcrumb">Home › Chapter › Question Practice</div>
+
+      <section class="entry-card paper-card">
+        <div class="entry-header">
+          <span class="subject-pill blue" id="pracSubjectPill">MATHEMATICS PART I · ALGEBRA</span>
+          <span class="stage-pill">PRACTICE WORKSPACE</span>
+        </div>
+        <h2 class="entry-title" id="pracChapterTitle">Question Practice: Chapter Name</h2>
+        <p class="entry-lead">Configure your practice session. Question generator, digital rough-work notebook, and answer checker will connect here in Stages 4–6.</p>
+
+        <div class="config-panel">
+          <label class="config-label">Preview Difficulty Selector:</label>
+          <div class="pill-group" id="pracDifficultyGroup">
+            <button type="button" class="select-pill active" data-diff="Easy">Easy</button>
+            <button type="button" class="select-pill" data-diff="Medium">Medium</button>
+            <button type="button" class="select-pill" data-diff="Hard">Hard</button>
+            <button type="button" class="select-pill" data-diff="Mixed">Mixed</button>
+          </div>
+          <p class="config-hint" id="pracDiffHint">Selected level: <strong>Easy</strong> — Basic formula &amp; direct substitution questions.</p>
+        </div>
+
+        <div class="outline-box">
+          <h4>Upcoming Workspace Modules (Stages 4–6):</h4>
+          <ul class="clean-list">
+            <li><strong>Auto Question Generator:</strong> Har baar naye valid numbers aur SVG geometry diagrams.</li>
+            <li><strong>Digital Notebook Canvas:</strong> Pen, pencil, eraser, colours aur math symbols rough work ke liye.</li>
+            <li><strong>Step-by-Step Answer Checker:</strong> Final answer check aur common mistakes ki pehchan.</li>
+          </ul>
+        </div>
+
+        <div class="entry-actions">
+          <button class="primary-btn" id="pracSwitchTutorialBtn">
+            <span>Read Tutorial First</span>
+            <b>→</b>
+          </button>
+          <button class="secondary-btn" id="pracBackChapterBtn">← Back to Chapter</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== VIEW 5: TEST ARENA SELECTION INTERFACE ==================== -->
+    <div id="testArenaView" class="view-section hidden">
+      <div class="breadcrumb-bar">Home › Test Arena</div>
+
+      <section class="entry-card paper-card">
+        <div class="entry-header">
+          <span class="subject-pill">TEST ARENA · OPEN SELECTION</span>
+          <span class="stage-pill">NO PREREQUISITE LOCK</span>
+        </div>
+        <h2 class="entry-title">Configure Your Test</h2>
+        <p class="entry-lead">Select any individual chapter, Mathematics Part I, Mathematics Part II, or the Full Syllabus. Tutorial completion is not required.</p>
+
+        <div class="config-panel">
+          <label class="config-label">1. Choose Test Scope:</label>
+          <div class="scope-grid" id="testScopeGroup">
+            <button type="button" class="scope-card active" data-scope="chapter">
+              <strong>Individual Chapter</strong>
+              <small>Focus on any 1 of 13 chapters</small>
+            </button>
+            <button type="button" class="scope-card" data-scope="part1">
+              <strong>Mathematics Part I</strong>
+              <small>All 6 Algebra chapters</small>
+            </button>
+            <button type="button" class="scope-card" data-scope="part2">
+              <strong>Mathematics Part II</strong>
+              <small>All 7 Geometry chapters</small>
+            </button>
+            <button type="button" class="scope-card" data-scope="full">
+              <strong>Full Syllabus</strong>
+              <small>Complete Std. X (13 chapters)</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="config-panel" id="chapterPickerBox">
+          <label class="config-label" for="arenaChapterSelect">2. Select Any Chapter (Part I or Part II):</label>
+          <select id="arenaChapterSelect" class="paper-select"></select>
+        </div>
+
+        <div class="config-panel">
+          <label class="config-label">3. Select Difficulty Level:</label>
+          <div class="pill-group" id="arenaDifficultyGroup">
+            <button type="button" class="select-pill active" data-diff="Mixed (Board Pattern)">Mixed (Board Pattern)</button>
+            <button type="button" class="select-pill" data-diff="Easy">Easy</button>
+            <button type="button" class="select-pill" data-diff="Medium">Medium</button>
+            <button type="button" class="select-pill" data-diff="Hard">Hard</button>
+          </div>
+        </div>
+
+        <div class="test-summary-box" id="testSelectionSummary">
+          <div>
+            <span class="eyebrow">SELECTED TEST CONFIGURATION</span>
+            <h4 id="summaryTitle">Chapter 01: Linear Equations in Two Variables</h4>
+            <p id="summaryMeta">Scope: Single Chapter (Part I (Algebra)) · Difficulty: Mixed (Board Pattern)</p>
+          </div>
+          <button class="primary-btn" id="confirmTestSelectionBtn">
+            <span>Preview Test Setup</span>
+            <b>✓</b>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <footer>Built for focused practice. <span>Stage 3 · Complete Interactive Tutorial System</span></footer>
+  </main>
+
+  <!-- Quick Chapter Preview Dialog -->
+  <dialog id="chapterDialog" class="modal">
+    <button class="close-btn" id="closeDialog" aria-label="Close">×</button>
+    <div class="eyebrow" id="dialogBook">MATHEMATICS</div>
+    <h2 id="dialogTitle">Chapter</h2>
+    <p class="modal-sub">Open the dedicated chapter page or jump straight into a section.</p>
+    <button class="choice-btn primary-choice" id="openChapterPageBtn">
+      <span>★</span>
+      <div><strong>Open Chapter Hub</strong><small>View progress, tutorial &amp; practice options</small></div>
+      <b>→</b>
+    </button>
+    <button class="choice-btn" id="tutorialBtn">
+      <span>01</span>
+      <div><strong>Tutorial</strong><small>Learn concepts step by step in easy Hinglish + Exam Notes</small></div>
+      <b>→</b>
+    </button>
+    <button class="choice-btn" id="practiceBtn">
+      <span>02</span>
+      <div><strong>Question Practice</strong><small>Practise questions in your notebook workspace</small></div>
+      <b>→</b>
+    </button>
+    <p class="coming-soon" id="modalStatus">Stage 3 Active: Interactive Hinglish + Exam-Ready Tutorials &amp; Checkpoints unlocked for all 13 chapters.</p>
+  </dialog>
+
+  <dialog id="infoDialog" class="modal">
+    <button class="close-btn" id="closeInfo" aria-label="Close">×</button>
+    <div class="eyebrow" id="infoEyebrow">MATHS ARENA</div>
+    <h2 id="infoTitle">Notice</h2>
+    <p id="infoText" class="modal-sub">Information message.</p>
+  </dialog>
+
+  <!-- STRICT SCRIPT LOADING ORDER: 1. Data -> 2. Tutorial Engine -> 3. App Controller -->
+  <script src="tutorials.js"></script>
+  <script src="tutorial-system.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
